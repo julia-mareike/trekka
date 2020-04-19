@@ -24,7 +24,7 @@ const navItems = [
     title: 'Czech'
   },
   {
-    path: 'purchase',
+    path: 'trekka-the-book',
     title: 'Trekka the Book'
   },
   {
