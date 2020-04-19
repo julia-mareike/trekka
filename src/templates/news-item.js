@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import Helmet from 'react-helmet'
 import get from 'lodash/get'
 import Img from 'gatsby-image'
@@ -13,12 +13,12 @@ class NewsItemTemplate extends React.Component {
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
     const [logo] = get(this, 'props.data.allContentfulLogo.edges')
 
-    console.log(post)
     return (
       <Layout location={this.props.location} logo={logo.node}>
         <div style={{ background: '#fff' }}>
           <Helmet title={`${post.title} | ${siteTitle}`} />
           <div className="wrapper">
+            <Link to='news'>Back to News</Link>
             <h1 className="section-headline">{post.title}</h1>
             <p
               style={{

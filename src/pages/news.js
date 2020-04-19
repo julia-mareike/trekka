@@ -2,27 +2,28 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
-import styles from './blog.module.css'
+import styles from './news.module.css'
 import Layout from '../components/layout'
 import ArticlePreview from '../components/article-preview'
 
-class BlogIndex extends React.Component {
+class NewsIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const posts = get(this, 'props.data.allContentfulBlogPost.edges')
+    const posts = get(this, 'props.data.allContentfulNews.edges')
+    const [logo] = get(this, 'props.data.allContentfulLogo.edges')
 
     return (
-      <Layout location={this.props.location}>
+      <Layout location={this.props.location} logo={logo.node}>
         <div style={{ background: '#fff' }}>
           <Helmet title={siteTitle} />
-          <div className={styles.hero}>Blog</div>
+          <div className={styles.hero}>Latest News</div>
           <div className="wrapper">
-            <h2 className="section-headline">Recent articles</h2>
+            <h2 className="section-headline">Latest News</h2>
             <ul className="article-list">
               {posts.map(({ node }) => {
                 return (
                   <li key={node.slug}>
-                    <ArticlePreview article={node} />
+                    <ArticlePreview news={node} />
                   </li>
                 )
               })}
@@ -34,25 +35,36 @@ class BlogIndex extends React.Component {
   }
 }
 
-export default BlogIndex
+export default NewsIndex
 
 export const pageQuery = graphql`
-  query BlogIndexQuery {
-    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
+  query NewsIndexQuery {
+    allContentfulNews(sort: { fields: [date], order: DESC }) {
       edges {
         node {
           title
           slug
-          publishDate(formatString: "MMMM Do, YYYY")
-          tags
+          date(formatString: "MMMM Do, YYYY")
           heroImage {
-            fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
-              ...GatsbyContentfulFluid_tracedSVG
+            fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: FILL, cropFocus: FACE) {
+              ...GatsbyContentfulFluid
             }
           }
-          description {
+          content {
             childMarkdownRemark {
               html
+            }
+          }
+        }
+      }
+    }
+    allContentfulLogo {
+      edges {
+        node {
+          title
+          image {
+            fixed {
+              ...GatsbyContentfulFixed_tracedSVG
             }
           }
         }
