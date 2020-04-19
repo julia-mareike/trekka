@@ -7,9 +7,9 @@ import Layout from '../components/layout'
 
 import heroStyles from '../components/hero.module.css'
 
-class BlogPostTemplate extends React.Component {
+class NewsItemTemplate extends React.Component {
   render() {
-    const post = get(this.props, 'data.contentfulBlogPost')
+    const post = get(this.props, 'data.contentfulNews')
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
 
     return (
@@ -30,7 +30,7 @@ class BlogPostTemplate extends React.Component {
                 display: 'block',
               }}
             >
-              {post.publishDate}
+              {post.date}
             </p>
             <div
               dangerouslySetInnerHTML={{
@@ -44,19 +44,19 @@ class BlogPostTemplate extends React.Component {
   }
 }
 
-export default BlogPostTemplate
+export default NewsItemTemplate
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
-    contentfulBlogPost(slug: { eq: $slug }) {
+  query NewsItemBySlug($slug: String!) {
+    contentfulNews(slug: { eq: $slug }) {
       title
-      publishDate(formatString: "MMMM Do, YYYY")
-      heroImage {
+      date(formatString: "MMMM Do, YYYY")
+      images {
         fluid(maxWidth: 1180, background: "rgb:000000") {
           ...GatsbyContentfulFluid_tracedSVG
         }
       }
-      body {
+      content {
         childMarkdownRemark {
           html
         }

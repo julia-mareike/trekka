@@ -9,21 +9,23 @@ import ArticlePreview from '../components/article-preview'
 class RootIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const posts = get(this, 'props.data.allContentfulBlogPost.edges')
-    const [author] = get(this, 'props.data.allContentfulPerson.edges')
+    const posts = get(this, 'props.data.allContentfulNews.edges')
+    const [image] = get(this, 'props.data.allContentfulHomepageImage.edges')
+    const [logo] = get(this, 'props.data.allContentfulLogo.edges')
 
+    console.log({ image })
     return (
-      <Layout location={this.props.location}>
+      <Layout location={this.props.location} logo={logo.node}>
         <div style={{ background: '#fff' }}>
           <Helmet title={siteTitle} />
-          <Hero data={author.node} />
+          <Hero data={image.node} />
           <div className="wrapper">
-            <h2 className="section-headline">Recent articles</h2>
+            <h2 className="section-headline">Latest News</h2>
             <ul className="article-list">
               {posts.map(({ node }) => {
                 return (
                   <li key={node.slug}>
-                    <ArticlePreview article={node} />
+                    <ArticlePreview news={node} />
                   </li>
                 )
               })}
@@ -39,44 +41,45 @@ export default RootIndex
 
 export const pageQuery = graphql`
   query HomeQuery {
-    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
+    allContentfulNews(sort: { fields: [date], order: DESC }) {
       edges {
         node {
           title
           slug
-          publishDate(formatString: "MMMM Do, YYYY")
-          tags
+          date(formatString: "MMMM Do, YYYY")
           heroImage {
-            fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
-              ...GatsbyContentfulFluid_tracedSVG
+            fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: FILL, cropFocus: FACE) {
+              ...GatsbyContentfulFluid
             }
           }
-          description {
-            childMarkdownRemark {
-              html
+          summary
+        }
+      }
+    }
+    allContentfulHomepageImage {
+      edges {
+        node {
+          title
+          image {
+            fluid(
+              maxWidth: 1180
+              maxHeight: 480
+              resizingBehavior: FILL
+              background: "rgb:ffffff"
+            ) {
+              ...GatsbyContentfulFluid
             }
           }
         }
       }
     }
-    allContentfulPerson(
-      filter: { contentful_id: { eq: "15jwOBqpxqSAOy2eOO4S0m" } }
-    ) {
+    allContentfulLogo {
       edges {
         node {
-          name
-          shortBio {
-            shortBio
-          }
           title
-          heroImage: image {
-            fluid(
-              maxWidth: 1180
-              maxHeight: 480
-              resizingBehavior: PAD
-              background: "rgb:000000"
-            ) {
-              ...GatsbyContentfulFluid_tracedSVG
+          image {
+            fixed {
+              ...GatsbyContentfulFixed_tracedSVG
             }
           }
         }
