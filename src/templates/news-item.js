@@ -11,18 +11,13 @@ class NewsItemTemplate extends React.Component {
   render() {
     const post = get(this.props, 'data.contentfulNews')
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
+    const [logo] = get(this, 'props.data.allContentfulLogo.edges')
 
+    console.log(post)
     return (
-      <Layout location={this.props.location}>
+      <Layout location={this.props.location} logo={logo.node}>
         <div style={{ background: '#fff' }}>
           <Helmet title={`${post.title} | ${siteTitle}`} />
-          <div className={heroStyles.hero}>
-            <Img
-              className={heroStyles.heroImage}
-              alt={post.title}
-              fluid={post.heroImage.fluid}
-            />
-          </div>
           <div className="wrapper">
             <h1 className="section-headline">{post.title}</h1>
             <p
@@ -34,9 +29,15 @@ class NewsItemTemplate extends React.Component {
             </p>
             <div
               dangerouslySetInnerHTML={{
-                __html: post.body.childMarkdownRemark.html,
+                __html: post.content.childMarkdownRemark.html,
               }}
             />
+            {post.images.map(image => (
+              <Img
+              alt={post.title}
+              fluid={image.fluid}
+            />
+            ))}
           </div>
         </div>
       </Layout>
@@ -53,12 +54,24 @@ export const pageQuery = graphql`
       date(formatString: "MMMM Do, YYYY")
       images {
         fluid(maxWidth: 1180, background: "rgb:000000") {
-          ...GatsbyContentfulFluid_tracedSVG
+          ...GatsbyContentfulFluid
         }
       }
       content {
         childMarkdownRemark {
           html
+        }
+      }
+    }
+    allContentfulLogo {
+      edges {
+        node {
+          title
+          image {
+            fixed {
+              ...GatsbyContentfulFixed_tracedSVG
+            }
+          }
         }
       }
     }
