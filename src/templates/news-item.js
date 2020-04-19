@@ -32,7 +32,7 @@ class NewsItemTemplate extends React.Component {
                 __html: post.content.childMarkdownRemark.html,
               }}
             />
-            {post.images.map(image => (
+            {post.images && post.images.map(image => (
               <Img
               alt={post.title}
               fluid={image.fluid}
