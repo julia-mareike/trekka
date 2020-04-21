@@ -75,10 +75,6 @@ a {
   display: flex;
 }
 
-  .sidebar-wrapper .news {
-    flex-grow: 1;
-  }
-
-  .sidebar-wrapper .trekka-the-book {
-    flex-grow: 1;
-  }
+.sidebar-child {
+  flex-grow: 1;
+}

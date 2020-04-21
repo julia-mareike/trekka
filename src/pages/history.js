@@ -12,7 +12,7 @@ class History extends React.Component {
 
     return (
       <Layout location={this.props.location} logo={logo.node} sidebar={sideBar.node}>
-        <div style={{ background: '#fff' }} className="trekka-the-book">
+        <div style={{ background: '#fff' }} className="sidebar-child">
           <Helmet title={siteTitle} />
           <div className="wrapper">
             <h2 className="section-headline">History - How it started</h2>
