@@ -8,12 +8,13 @@ import Sidebar from './sidebar'
 class Template extends React.Component {
   render() {
     const { children, sidebar } = this.props
-
+    const classname = sidebar ? "sidebar-wrapper" : ""
+    
     return (
       <Container>
         <Logo logo={this.props.logo}/>
         <Navigation />
-        <div className="sidebar-wrapper">
+        <div className={classname}>
           {children}
           {sidebar && <Sidebar sidebar={sidebar} />}
         </div>
