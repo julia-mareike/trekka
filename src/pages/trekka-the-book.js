@@ -2,11 +2,9 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
-import styles from './news.module.css'
 import Layout from '../components/layout'
-import ArticlePreview from '../components/article-preview'
 
-class NewsIndex extends React.Component {
+class TrekkaTheBook extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const [logo] = get(this, 'props.data.allContentfulLogo.edges')
@@ -36,7 +34,7 @@ class NewsIndex extends React.Component {
   }
 }
 
-export default NewsIndex
+export default TrekkaTheBook
 
 export const pageQuery = graphql`
   query TrekkaTheBookQuery {
