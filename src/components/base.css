@@ -70,3 +70,11 @@ a {
   .list-inline li {
     display: inline-block;
   }
+
+.sidebar-wrapper {
+  display: flex;
+}
+
+  .sidebar-wrapper .news {
+    flex-grow: 1;
+  }

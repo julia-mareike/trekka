@@ -13,7 +13,6 @@ class RootIndex extends React.Component {
     const [image] = get(this, 'props.data.allContentfulHomepageImage.edges')
     const [logo] = get(this, 'props.data.allContentfulLogo.edges')
 
-    console.log({ image })
     return (
       <Layout location={this.props.location} logo={logo.node}>
         <div style={{ background: '#fff' }}>

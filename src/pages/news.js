@@ -11,12 +11,12 @@ class NewsIndex extends React.Component {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const posts = get(this, 'props.data.allContentfulNews.edges')
     const [logo] = get(this, 'props.data.allContentfulLogo.edges')
+    const [sideBar] = get(this, 'props.data.allContentfulSidebar.edges')
 
     return (
-      <Layout location={this.props.location} logo={logo.node}>
-        <div style={{ background: '#fff' }}>
+      <Layout location={this.props.location} logo={logo.node} sidebar={sideBar.node}>
+        <div style={{ background: '#fff' }} className="news">
           <Helmet title={siteTitle} />
-          <div className={styles.hero}>Latest News</div>
           <div className="wrapper">
             <h2 className="section-headline">Latest News</h2>
             <ul className="article-list">
@@ -67,6 +67,19 @@ export const pageQuery = graphql`
               ...GatsbyContentfulFixed_tracedSVG
             }
           }
+        }
+      }
+    }
+    allContentfulSidebar {
+      edges {
+        node {
+          image {
+            fixed(width: 175) {
+              ...GatsbyContentfulFixed
+            }
+          }
+          header
+          content
         }
       }
     }
