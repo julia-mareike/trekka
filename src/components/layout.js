@@ -8,7 +8,6 @@ import Sidebar from './sidebar'
 class Template extends React.Component {
   render() {
     const { children, sidebar } = this.props
-    console.log(this.props)
 
     return (
       <Container>
@@ -16,7 +15,7 @@ class Template extends React.Component {
         <Navigation />
         <div className="sidebar-wrapper">
           {children}
-          { sidebar && <Sidebar sidebar={sidebar} />}
+          {sidebar && <Sidebar sidebar={sidebar} />}
         </div>
 
       </Container>
