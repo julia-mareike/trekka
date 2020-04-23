@@ -10,8 +10,6 @@ class TheVehicle extends React.Component {
     const [logo] = get(this, 'props.data.allContentfulLogo.edges')
     const [sideBar] = get(this, 'props.data.allContentfulSidebar.edges')
     const page = get(this, 'props.data.contentfulPage')
-    console.log(this.props.data)
-    console.log(page)
 
     return (
       <Layout location={this.props.location} logo={logo.node} sidebar={sideBar.node}>
