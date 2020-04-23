@@ -9,21 +9,20 @@ class ContactUs extends React.Component {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const [logo] = get(this, 'props.data.allContentfulLogo.edges')
     const [sideBar] = get(this, 'props.data.allContentfulSidebar.edges')
+    const page = get(this, 'props.data.contentfulPage')
 
+    console.log(page)
     return (
       <Layout location={this.props.location} logo={logo.node} sidebar={sideBar.node}>
         <div style={{ background: '#fff' }} className="sidebar-child">
           <Helmet title={siteTitle} />
           <div className="wrapper">
-            <h2 className="section-headline">Contact us</h2>
-            <p>Do you:</p>
-            <p>Have news or information about the Trekka?</p>
-            <p>Have Trekka parts available?</p>
-            <p>Want to find out more about the Trekka?</p>
-            <p>Wish to purchase Todd’s Trekka book?</p>
-            <p>Then please get in touch:</p>
-            <br />
-            <p>Email: trekkaproject@paradise.net.nz</p>
+            <h2 className="section-headline">{page.title}</h2>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: page.content.childMarkdownRemark.html,
+              }}
+            />
           </div>
         </div>
       </Layout>
@@ -35,6 +34,14 @@ export default ContactUs
 
 export const pageQuery = graphql`
   query ContactUsQuery {
+    contentfulPage(title: {eq: "Contact us"}) {
+      title
+      content {
+        childMarkdownRemark {
+          html
+        }
+      }
+    }
     allContentfulLogo {
       edges {
         node {
