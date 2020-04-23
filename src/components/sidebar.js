@@ -10,7 +10,7 @@ const Sidebar = ({ sidebar }) => {
       <Img 
         alt={sidebar.image.title}
         fixed={sidebar.image.fixed}
-        style={{ 'align-self': 'center', 'margin': '10px' }}
+        style={{ alignSelf: 'center', 'margin': '10px' }}
       />
       <p>{sidebar.content}</p>
     </div>
