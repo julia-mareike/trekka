@@ -12,7 +12,7 @@ class ErrorPage extends React.Component {
 
     return (
       <Layout location={this.props.location} logo={logo.node}>
-        <div style={{ background: '#fff' }}>
+        <div>
           <Helmet title={siteTitle} />
           <div className={styles.hero}>Oops</div>
           <div className="wrapper">
@@ -34,7 +34,7 @@ export const pageQuery = graphql`
           title
           image {
             fixed {
-              ...GatsbyContentfulFixed_tracedSVG
+              ...GatsbyContentfulFixed
             }
           }
         }

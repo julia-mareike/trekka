@@ -5,18 +5,19 @@ import Img from 'gatsby-image'
 import styles from './article-preview.module.css'
 
 export default ({ news }) => {
-  console.log({ news })
   return (
   <div className={styles.preview}>
-    <Img alt="" fluid={news.heroImage.fluid} />
-    <h3 className={styles.previewTitle}>
-      <Link to={`/news/${news.slug}`}>{news.title}</Link>
-    </h3>
-    <small>{news.date}</small>
-    <p
-      dangerouslySetInnerHTML={{
-        __html: news.summary,
-      }}
-    />
+    <Link to={`/news/${news.slug}`}>
+      <Img alt={news.title} fluid={news.heroImage.fluid} />
+      <h4 className={styles.previewTitle}>
+        {news.title}
+      </h4>
+      <small>{news.date}</small>
+      <p
+        dangerouslySetInnerHTML={{
+          __html: news.summary,
+        }}
+      />
+    </Link>
   </div>
 )}

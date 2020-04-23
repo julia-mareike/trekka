@@ -15,7 +15,7 @@ class History extends React.Component {
         <div style={{ background: '#fff' }} className="sidebar-child">
           <Helmet title={siteTitle} />
           <div className="wrapper">
-            <h2 className="section-headline">History - How it started</h2>
+            <h3 className="section-headline">How it started</h3>
             <p>The Trekka emerged as the ultimate response to policies pursued by successive New Zealand Government’s aimed at boosting the homegrown content of the local motor industry.</p>
             <p>By making new cars scarce and expensive, policies which began evolving from the 1950s offered concessions to firms able to increase the local content of cars assembled inside New Zealand.</p>
             <p>The Trekka was a locally-produced, steel body with canvas or fibreglass canopies, bolted to the chassis and engine of the Skoda Octavia Combi, which dated form the late 1950′s.</p>
@@ -40,7 +40,7 @@ export const pageQuery = graphql`
           title
           image {
             fixed {
-              ...GatsbyContentfulFixed_tracedSVG
+              ...GatsbyContentfulFixed
             }
           }
         }

@@ -4,6 +4,7 @@ import Container from './container'
 import Navigation from './navigation'
 import Logo from './logo'
 import Sidebar from './sidebar'
+import Footer from './footer'
 
 class Template extends React.Component {
   render() {
@@ -18,7 +19,7 @@ class Template extends React.Component {
           {children}
           {sidebar && <Sidebar sidebar={sidebar} />}
         </div>
-
+        <Footer />
       </Container>
     )
   }

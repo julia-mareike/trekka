@@ -41,7 +41,7 @@ export const pageQuery = graphql`
           title
           image {
             fixed {
-              ...GatsbyContentfulFixed_tracedSVG
+              ...GatsbyContentfulFixed
             }
           }
         }

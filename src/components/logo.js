@@ -7,6 +7,8 @@ const Logo = ({ logo }) => {
     <Img
       alt={logo.title}
       fixed={logo.image.fixed}
+      fadeIn={false}
+      loading="eager"
     />
   )
 }

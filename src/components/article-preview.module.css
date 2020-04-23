@@ -1,5 +1,6 @@
 .previewTitle {
   font-size: 1.5em;
+  font-weight: normal;
 }
 
 .tag {
@@ -11,4 +12,17 @@
   border-radius: 2px;
   border: 1px solid #A0A0A0;
   margin-right: .5em;
+}
+
+.preview {
+  padding: 8px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #fff5ed;
+}
+
+.preview:hover {
+  background-color: white;
+  cursor: pointer;
+  border-color: lightgrey;
 }

@@ -2,7 +2,6 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
-import styles from './news.module.css'
 import Layout from '../components/layout'
 import ArticlePreview from '../components/article-preview'
 
@@ -22,7 +21,7 @@ class NewsIndex extends React.Component {
             <ul className="article-list">
               {posts.map(({ node }) => {
                 return (
-                  <li key={node.slug}>
+                  <li key={node.slug} className="article-preview">
                     <ArticlePreview news={node} />
                   </li>
                 )
@@ -64,7 +63,7 @@ export const pageQuery = graphql`
           title
           image {
             fixed {
-              ...GatsbyContentfulFixed_tracedSVG
+              ...GatsbyContentfulFixed
             }
           }
         }

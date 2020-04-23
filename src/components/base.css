@@ -7,12 +7,13 @@
 }
 
 body {
-  font-family: "Avenir", Tahoma, Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 1em;
-  line-height: 1.65;
+  line-height: 1.5;
   color: #373F49;
-  background: #fff;
-  margin: 0;
+  background: #fff5ed;
+  margin: 20px;
+  min-width: 480px;
 }
 
 img {
@@ -27,8 +28,18 @@ h3 {
   font-weight: normal;
 }
 
+h2,
+h3 {
+  text-transform: uppercase;
+}
+
 a {
   color: currentColor;
+  text-decoration: none;
+}
+
+a:hover {
+  color: black;
 }
 
 .wrapper {

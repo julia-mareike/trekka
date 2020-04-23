@@ -15,7 +15,7 @@ class TrekkaTheBook extends React.Component {
         <div style={{ background: '#fff' }} className="sidebar-child">
           <Helmet title={siteTitle} />
           <div className="wrapper">
-            <h2 className="section-headline">Trekka the Book - how to purchase</h2>
+            <h2 className="section-headline">How to purchase</h2>
             <p>Copies of “The Trekka Dynasty” can be purchased direct from the author and publisher Todd Niall.</p>
             <p>The book costs $NZ18 and for international postage rates please just ask.</p>
             <p>There is no payment method through this website, but Paypal and other options are available.</p>
@@ -44,7 +44,7 @@ export const pageQuery = graphql`
           title
           image {
             fixed {
-              ...GatsbyContentfulFixed_tracedSVG
+              ...GatsbyContentfulFixed
             }
           }
         }

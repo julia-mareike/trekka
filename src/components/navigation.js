@@ -9,7 +9,7 @@ const navItems = [
   },
   {
     path: 'news',
-    title: 'Latest News'
+    title: 'News'
   },
   {
     path: 'history',
@@ -25,7 +25,7 @@ const navItems = [
   },
   {
     path: 'trekka-the-book',
-    title: 'Trekka the Book'
+    title: 'The Book'
   },
   {
     path: 'contact-us',

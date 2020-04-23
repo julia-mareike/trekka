@@ -3,4 +3,14 @@
   max-width: 300px;
   display: flex;
   flex-direction: column;
+  background: #fff;
+  padding: 3vmin 3vmin;
+}
+
+.sidebar h4 {
+  text-transform: uppercase;
+}
+
+.sidebar p {
+  font-size: 0.9em;
 }
