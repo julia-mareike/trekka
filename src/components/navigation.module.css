@@ -1,12 +1,34 @@
 .navigation {
   display: flex;
-  justify-content: space-between;
   list-style: none;
   padding: 0;
   margin: 0;
   height: 20vh;
-  max-height: 100px;
   font-size: 1.25em;
+  flex-direction: column;
+  align-items: flex-end;
+  display: none;
+}
+
+.navContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.hamburger {
+  fill: #373F49;
+  padding: 15px;
+}
+
+.hamburger:hover,
+.hamburgerActive {
+  fill: black;
+  cursor: pointer;
+}
+
+.dropDown {
+  display: flex;
 }
 
 .navigationItem {
@@ -16,7 +38,7 @@
 }
 
 .navigationItem a:hover {
-  transform: scale(1.1);
+  transform: scale(1.2);
 }
 
 .navigationItem a {
@@ -26,36 +48,62 @@
   text-align: center;
 }
 
-.navigationItem a:before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: #000;
-  visibility: hidden;
-  transform: scaleX(0);
-  transition: all 0.2s ease-in-out 0s;
-}
-
-.navigationItem a:hover:before {
-  visibility: visible;
-  transform: scaleX(1);
-}
-
 .activeLink {
-  transform: scale(1.1)
+  transform: scale(1.2)
 }
 
-.activeLink:before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: #000;
-  visibility: visible !important;
-  transform: scaleX(1) !important;
+@media screen and (min-width: 1000px) {
+  .activeLink {
+    transform: scale(1.1)
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  .navContainer {
+    align-items: inherit;
+  }
+
+  .navigationItem a:hover {
+    transform: scale(1.1);
+  }
+
+  .navigation {
+    max-height: 100px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+  }
+
+  .navigationItem a:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #000;
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.2s ease-in-out 0s;
+  }
+
+  .navigationItem a:hover:before {
+    visibility: visible;
+    transform: scaleX(1);
+  }
+
+  .activeLink:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #000;
+    visibility: visible !important;
+    transform: scaleX(1) !important;
+  }
 }

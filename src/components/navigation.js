@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
+import classnames from 'classnames'
 import { Link } from 'gatsby'
 import styles from './navigation.module.css'
+import Menu from '../../static/menu.svg'
 
 const navItems = [
   {
@@ -33,19 +35,41 @@ const navItems = [
   }
 ]
 
-export default () => (
-  <nav role="navigation">
-    <ul className={styles.navigation}>
-      {navItems.map(item => (
-      <li className={styles.navigationItem} key={item.path}>
-        <Link 
-          to={item.path}
-          activeClassName={styles.activeLink}
-        >
-          {item.title}
-        </Link>
-      </li>
-      ))}
-    </ul>
-  </nav>
-)
+export default () => {
+  const [ showDropdownNav, setShowDropdownNav ] = useState(false)
+
+  return (
+    <nav role="navigation" className={styles.navContainer}>
+      <Menu 
+        onClick={() => setShowDropdownNav(!showDropdownNav)}
+        className={
+          classnames(
+            styles.hamburger,
+            {
+              [styles.hamburgerActive]: showDropdownNav
+            }
+          )
+        }
+      />
+      <ul className={
+        classnames(
+          styles.navigation, 
+          {
+            [styles.dropDown]: showDropdownNav
+          }
+        )
+      }>
+        {navItems.map(item => (
+        <li className={styles.navigationItem} key={item.path}>
+          <Link 
+            to={item.path}
+            activeClassName={styles.activeLink}
+          >
+            {item.title}
+          </Link>
+        </li>
+        ))}
+      </ul>
+    </nav>
+  )
+}

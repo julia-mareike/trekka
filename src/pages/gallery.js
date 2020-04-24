@@ -9,7 +9,6 @@ class Gallery extends React.Component {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const [logo] = get(this, 'props.data.allContentfulLogo.edges')
     const [sideBar] = get(this, 'props.data.allContentfulSidebar.edges')
-    const page = get(this, 'props.data.contentfulPage')
 
     return (
       <Layout location={this.props.location} logo={logo.node} sidebar={sideBar.node}>
