@@ -8,27 +8,27 @@ const navItems = [
     title: 'Home'
   },
   {
-    path: 'news',
+    path: '/news',
     title: 'News'
   },
   {
-    path: 'history',
+    path: '/history',
     title: 'History'
   },
   {
-    path: 'the-vehicle',
+    path: '/the-vehicle',
     title: 'The Vehicle'
   },
   {
-    path: 'czech',
-    title: 'Czech'
+    path: '/gallery',
+    title: 'Gallery'
   },
   {
-    path: 'trekka-the-book',
+    path: '/trekka-the-book',
     title: 'The Book'
   },
   {
-    path: 'contact-us',
+    path: '/contact-us',
     title: 'Contact Us'
   }
 ]
@@ -37,8 +37,13 @@ export default () => (
   <nav role="navigation">
     <ul className={styles.navigation}>
       {navItems.map(item => (
-      <li className={styles.navigationItem}>
-        <Link to={item.path}>{item.title}</Link>
+      <li className={styles.navigationItem} key={item.path}>
+        <Link 
+          to={item.path}
+          activeClassName={styles.activeLink}
+        >
+          {item.title}
+        </Link>
       </li>
       ))}
     </ul>

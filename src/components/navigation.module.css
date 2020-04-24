@@ -41,5 +41,21 @@
 
 .navigationItem a:hover:before {
   visibility: visible;
-  transform: scaleX(0.7);
+  transform: scaleX(1);
+}
+
+.activeLink {
+  transform: scale(1.1)
+}
+
+.activeLink:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+  visibility: visible !important;
+  transform: scaleX(1) !important;
 }

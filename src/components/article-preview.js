@@ -6,18 +6,18 @@ import styles from './article-preview.module.css'
 
 export default ({ news }) => {
   return (
-  <div className={styles.preview}>
-    <Link to={`/news/${news.slug}`}>
-      <Img alt={news.title} fluid={news.heroImage.fluid} />
-      <h4 className={styles.previewTitle}>
-        {news.title}
-      </h4>
-      <small>{news.date}</small>
-      <p
-        dangerouslySetInnerHTML={{
-          __html: news.summary,
-        }}
-      />
-    </Link>
-  </div>
+  <Link to={`/news/${news.slug}`}>
+    <div className={styles.preview}>
+        <Img alt={news.title} fluid={news.heroImage.fluid} />
+        <h4 className={styles.previewTitle}>
+          {news.title}
+        </h4>
+        <small>{news.date}</small>
+        <p
+          dangerouslySetInnerHTML={{
+            __html: news.summary,
+          }}
+        />
+    </div>
+  </Link>
 )}

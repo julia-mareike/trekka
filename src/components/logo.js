@@ -5,7 +5,7 @@ const Logo = ({ logo }) => {
   console.log(logo)
   return (
     <Img
-      alt={logo.title}
+      alt=""
       fixed={logo.image.fixed}
       fadeIn={false}
       loading="eager"

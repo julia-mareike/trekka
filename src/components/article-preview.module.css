@@ -19,6 +19,7 @@
   border-style: solid;
   border-width: 2px;
   border-color: #fff5ed;
+  height: 100%;
 }
 
 .preview:hover {
