@@ -17,7 +17,7 @@ class History extends React.Component {
           <Helmet title={siteTitle} />
           <div className="wrapper">
             <h3 className="section-headline">{page.header}</h3>
-            <div
+            <div className="page-content"
               dangerouslySetInnerHTML={{
                 __html: page.content.childMarkdownRemark.html,
               }}
