@@ -13,7 +13,7 @@ body {
   color: #373F49;
   background: #fff5ed;
   margin: 20px;
-  min-width: 480px;
+  min-width: 350px;
 }
 
 img {
@@ -109,8 +109,16 @@ a:hover {
   flex-grow: 1;
 }
 
+.logo {
+  width: 330px;
+}
+
 @media screen and (min-width: 680px) {
   .sidebar-wrapper {
     flex-direction: row;
+  }
+  
+  .logo {
+    width: 400px;
   }
 }

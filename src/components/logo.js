@@ -4,12 +4,14 @@ import Img from 'gatsby-image'
 const Logo = ({ logo }) => {
   console.log(logo)
   return (
-    <Img
-      alt=""
-      fixed={logo.image.fixed}
-      fadeIn={false}
-      loading="eager"
-    />
+    <div className="logo">
+      <Img
+        alt=""
+        fluid={logo.image.fluid}
+        fadeIn={false}
+        loading="eager"
+      />
+    </div>
   )
 }
 

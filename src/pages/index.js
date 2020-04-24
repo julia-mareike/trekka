@@ -78,8 +78,8 @@ export const pageQuery = graphql`
         node {
           title
           image {
-            fixed {
-              ...GatsbyContentfulFixed_tracedSVG
+            fluid(maxWidth: 400) {
+              ...GatsbyContentfulFluid_tracedSVG
             }
           }
         }
