@@ -77,7 +77,11 @@ export const pageQuery = graphql`
             }
           }
           header
-          content
+          content {
+            childMarkdownRemark {
+              html
+            }
+          }
         }
       }
     }

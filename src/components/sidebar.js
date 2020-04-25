@@ -15,7 +15,11 @@ const Sidebar = ({ sidebar }) => {
           style={{ alignSelf: 'center', margin: '10px' }}
         />
       </Link>
-      <p>{sidebar.content}</p>
+      <div className={styles.sidebarContent}
+              dangerouslySetInnerHTML={{
+                __html: sidebar.content.childMarkdownRemark.html,
+              }}
+            />
     </div>
   )
 }

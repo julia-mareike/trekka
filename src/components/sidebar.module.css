@@ -12,8 +12,12 @@
   text-transform: uppercase;
 }
 
-.sidebar p {
+.sidebarContent {
   font-size: 0.9em;
+}
+
+.sidebarContent a {
+  text-decoration: underline;
 }
 
 @media screen and (min-width: 680px) {
