@@ -23,7 +23,6 @@ if (!spaceId || !accessToken) {
 module.exports = {
   pathPrefix: '/gatsby-contentful-starter',
   plugins: [
-    'gatsby-transformer-remark',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
     {
@@ -37,6 +36,14 @@ module.exports = {
           include: /static/
         }
       }
-    }
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [{
+          resolve: "gatsby-remark-external-links"
+        }]
+      }
+    },
   ],
 }
