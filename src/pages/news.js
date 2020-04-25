@@ -7,7 +7,6 @@ import ArticlePreview from '../components/article-preview'
 
 class NewsIndex extends React.Component {
   render() {
-    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const posts = get(this, 'props.data.allContentfulNews.edges')
     const [logo] = get(this, 'props.data.allContentfulLogo.edges')
     const [sideBar] = get(this, 'props.data.allContentfulSidebar.edges')
@@ -15,7 +14,7 @@ class NewsIndex extends React.Component {
     return (
       <Layout location={this.props.location} logo={logo.node} sidebar={sideBar.node}>
         <div style={{ background: '#fff' }} className="sidebar-child">
-          <Helmet title={siteTitle} />
+          <Helmet title={`Trekka | Latest News`} />
           <div className="wrapper">
             <h2 className="section-headline">Latest News</h2>
             <ul className="article-list">

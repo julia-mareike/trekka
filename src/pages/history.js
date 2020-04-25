@@ -14,7 +14,7 @@ class History extends React.Component {
     return (
       <Layout location={this.props.location} logo={logo.node} sidebar={sideBar.node}>
         <div style={{ background: '#fff' }} className="sidebar-child">
-          <Helmet title={siteTitle} />
+          <Helmet title={`Trekka | ${page.title}`} />
           <div className="wrapper">
             <h3 className="section-headline">{page.header}</h3>
             <div className="page-content"
@@ -34,6 +34,7 @@ export default History
 export const pageQuery = graphql`
   query HistoryQuery {
     contentfulPage(title: {eq: "History"}) {
+      title
       header
       content {
         childMarkdownRemark {

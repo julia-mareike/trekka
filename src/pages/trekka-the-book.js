@@ -6,7 +6,6 @@ import Layout from '../components/layout'
 
 class TrekkaTheBook extends React.Component {
   render() {
-    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const [logo] = get(this, 'props.data.allContentfulLogo.edges')
     const [sideBar] = get(this, 'props.data.allContentfulSidebar.edges')
     const page = get(this, 'props.data.contentfulPage')
@@ -14,7 +13,7 @@ class TrekkaTheBook extends React.Component {
     return (
       <Layout location={this.props.location} logo={logo.node} sidebar={sideBar.node}>
         <div style={{ background: '#fff' }} className="sidebar-child">
-          <Helmet title={siteTitle} />
+          <Helmet title={`Trekka | The Book`} />
           <div className="wrapper">
             <h2 className="section-headline">{page.header}</h2>
             <div className="page-content"
@@ -34,6 +33,7 @@ export default TrekkaTheBook
 export const pageQuery = graphql`
   query TrekkaTheBookQuery {
     contentfulPage(title: {eq: "Trekka the Book"}) {
+      title
       header
       content {
         childMarkdownRemark {

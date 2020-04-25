@@ -8,7 +8,6 @@ import ArticlePreview from '../components/article-preview'
 
 class RootIndex extends React.Component {
   render() {
-    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const posts = get(this, 'props.data.allContentfulNews.edges')
     const [image] = get(this, 'props.data.allContentfulHomepageImage.edges')
     const [logo] = get(this, 'props.data.allContentfulLogo.edges')
@@ -16,7 +15,7 @@ class RootIndex extends React.Component {
     return (
       <Layout location={this.props.location} logo={logo.node}>
         <div style={{ background: '#fff5ed' }}>
-          <Helmet title={siteTitle} />
+          <Helmet title={'Trekka'} />
           <Hero data={image.node} />
           <div className="wrapper">
             <h2 className="section-headline">Latest News</h2>

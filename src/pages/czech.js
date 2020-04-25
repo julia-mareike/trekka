@@ -6,14 +6,13 @@ import Layout from '../components/layout'
 
 class Czech extends React.Component {
   render() {
-    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const [logo] = get(this, 'props.data.allContentfulLogo.edges')
     const [sideBar] = get(this, 'props.data.allContentfulSidebar.edges')
 
     return (
       <Layout location={this.props.location} logo={logo.node} sidebar={sideBar.node}>
         <div style={{ background: '#fff' }} className="sidebar-child">
-          <Helmet title={siteTitle} />
+          <Helmet title={`Trekka | Czech`} />
           <div className="wrapper">
             <h2 className="section-headline">The Trekka in Czech</h2>
             <p>More information coming soon…</p>
