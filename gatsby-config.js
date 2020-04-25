@@ -25,6 +25,7 @@ module.exports = {
   plugins: [
     'gatsby-plugin-react-helmet-async',
     'gatsby-plugin-sharp',
+    `gatsby-plugin-catch-links`,
     {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,
