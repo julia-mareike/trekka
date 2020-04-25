@@ -1,8 +1,18 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
 import get from 'lodash/get'
 import { Helmet } from 'react-helmet-async'
+import {
+  Accordion,
+  AccordionItem,
+  AccordionItemHeading,
+  AccordionItemButton,
+  AccordionItemPanel,
+} from 'react-accessible-accordion'
 import Layout from '../components/layout'
+
+import 'react-accessible-accordion/dist/fancy-example.css'
 
 class ChapterSummary extends React.Component {
   render() {
@@ -24,19 +34,31 @@ class ChapterSummary extends React.Component {
               }}
             />
           </div>
-          {chapterSummaries.map(({ node }) => {
-            console.log(node)
-            return (
-              <>
-                <p>{node.chapterNumber} - {node.title}</p>
-                <div className="chapter-summary"
-                  dangerouslySetInnerHTML={{
-                    __html: node.childContentfulChapterSummarySummaryTextNode.childMarkdownRemark.html,
-                  }}
-                />
-              </>
-            )
-          })}
+          <Accordion allowZeroExpanded>
+            {chapterSummaries.map(({ node }) => {
+              console.log(node)
+              return (
+                <AccordionItem>
+                  <AccordionItemHeading>
+                      <AccordionItemButton>
+                        {node.chapterNumber} - {node.title}
+                      </AccordionItemButton>
+                  </AccordionItemHeading>
+                  <AccordionItemPanel>
+                    {node.image && <Img
+                      alt={node.image.title}
+                      fixed={node.image.fixed}
+                    />}
+                    <div className="chapter-summary"
+                      dangerouslySetInnerHTML={{
+                        __html: node.childContentfulChapterSummarySummaryTextNode.childMarkdownRemark.html,
+                      }}
+                    />
+                  </AccordionItemPanel>
+                </AccordionItem>
+              )
+            })}
+          </Accordion>
         </div>
       </Layout>
     )
