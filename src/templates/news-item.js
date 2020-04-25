@@ -16,7 +16,7 @@ class NewsItemTemplate extends React.Component {
         <div style={{ background: '#fff' }}>
           <Helmet title={`${post.title} | ${siteTitle}`} />
           <div className="wrapper">
-            <Link to='news'>Back to News</Link>
+            <Link to='news'className="back-to-news">&#8617; Back to News</Link>
             <h1 className="section-headline">{post.title}</h1>
             <p
               style={{
@@ -34,6 +34,7 @@ class NewsItemTemplate extends React.Component {
               <Img
               alt={post.title}
               fluid={image.fluid}
+              className={"news-image"}
             />
             ))}
           </div>
@@ -51,7 +52,7 @@ export const pageQuery = graphql`
       title
       date(formatString: "MMMM Do, YYYY")
       images {
-        fluid(maxWidth: 1180, background: "rgb:000000") {
+        fluid(maxWidth: 800, background: "rgb:000000") {
           ...GatsbyContentfulFluid
         }
       }
