@@ -21,7 +21,6 @@ class ChapterSummary extends React.Component {
     const page = get(this, 'props.data.contentfulPage')
     const chapterSummaries = get(this, 'props.data.allContentfulChapterSummary.edges')
 
-    console.log(chapterSummaries)
     return (
       <Layout location={this.props.location} logo={logo.node} sidebar={sideBar.node}>
         <div style={{ background: '#fff' }} className="sidebar-child">
@@ -36,7 +35,6 @@ class ChapterSummary extends React.Component {
           </div>
           <Accordion allowZeroExpanded>
             {chapterSummaries.map(({ node }) => {
-              console.log(node)
               return (
                 <AccordionItem>
                   <AccordionItemHeading>
