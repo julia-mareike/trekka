@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet-async'
 import styles from './news.module.css'
 import Layout from '../components/layout'
 

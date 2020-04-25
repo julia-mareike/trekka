@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet-async'
 import Layout from '../components/layout'
 
 class ContactUs extends React.Component {

@@ -23,7 +23,7 @@ if (!spaceId || !accessToken) {
 module.exports = {
   pathPrefix: '/gatsby-contentful-starter',
   plugins: [
-    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-react-helmet-async',
     'gatsby-plugin-sharp',
     {
       resolve: 'gatsby-source-contentful',
