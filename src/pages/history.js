@@ -6,7 +6,6 @@ import Layout from '../components/layout'
 
 class History extends React.Component {
   render() {
-    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const [logo] = get(this, 'props.data.allContentfulLogo.edges')
     const [sideBar] = get(this, 'props.data.allContentfulSidebar.edges')
     const page = get(this, 'props.data.contentfulPage')
