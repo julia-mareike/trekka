@@ -16,7 +16,7 @@ class TheVehicle extends React.Component {
           <Helmet title={`Trekka | ${page.title}`} />
           <div className="wrapper">
             <h3 className="section-headline">{page.header}</h3>
-            <div
+            <div className="page-content"
               dangerouslySetInnerHTML={{
                 __html: page.content.childMarkdownRemark.html,
               }}

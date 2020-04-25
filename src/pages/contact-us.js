@@ -16,7 +16,7 @@ class ContactUs extends React.Component {
           <Helmet title={`Trekka | ${page.title}`} />
           <div className="wrapper">
             <h2 className="section-headline">{page.header}</h2>
-            <div
+            <div className="page-content"
               dangerouslySetInnerHTML={{
                 __html: page.content.childMarkdownRemark.html,
               }}

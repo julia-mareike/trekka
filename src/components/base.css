@@ -132,6 +132,16 @@ hr {
 
 .logo {
   width: 330px;
+  margin: 0 auto;
+}
+
+.logo {
+  text-align: end;
+}
+
+.logo:hover {
+  opacity: 0.8;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 680px) {

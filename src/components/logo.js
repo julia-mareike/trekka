@@ -6,9 +6,9 @@ const Logo = ({ logo }) => {
   return (
     <div className="logo">
       <Img
-        alt=""
+        alt={logo.title}
         fluid={logo.image.fluid}
-        fadeIn={false}
+        // fadeIn={false}
         loading="eager"
       />
     </div>
