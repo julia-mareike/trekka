@@ -37,6 +37,10 @@ a {
   text-decoration: none;
 }
 
+p {
+  text-align: justify;
+}
+
 .page-content a {
   text-decoration: underline;
 }
@@ -45,8 +49,8 @@ a {
   max-width: 250px;
   max-height: 300px;
   width: auto;
-  float: left;
   padding-right: 10px;
+  margin: 0 auto 15px;
 }
 
 .page-content h3 {
@@ -125,5 +129,11 @@ a:hover {
 @media screen and (min-width: 380px) {
   body {
     margin: 20px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .page-content img {
+    float: left;
   }
 }
