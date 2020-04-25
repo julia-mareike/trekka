@@ -2,7 +2,6 @@ import React from 'react'
 import Img from 'gatsby-image'
 
 const Logo = ({ logo }) => {
-  console.log(logo)
   return (
     <div className="logo">
       <Img
