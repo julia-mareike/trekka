@@ -29,6 +29,8 @@
 
 .dropDown {
   display: flex;
+  z-index: 2;
+  position: inherit;
 }
 
 .navigationItem {

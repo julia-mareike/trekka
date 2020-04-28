@@ -6,4 +6,5 @@
   border: black;
   border-width: 2px;
   border-style: solid;
+  z-index: 1;
 }
