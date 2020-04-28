@@ -16,13 +16,12 @@ import 'react-accessible-accordion/dist/fancy-example.css'
 
 class ChapterSummary extends React.Component {
   render() {
-    const [logo] = get(this, 'props.data.allContentfulLogo.edges')
     const [sideBar] = get(this, 'props.data.allContentfulSidebar.edges')
     const page = get(this, 'props.data.contentfulPage')
     const chapterSummaries = get(this, 'props.data.allContentfulChapterSummary.edges')
 
     return (
-      <Layout location={this.props.location} logo={logo.node} sidebar={sideBar.node}>
+      <Layout location={this.props.location} sidebar={sideBar.node}>
         <div style={{ background: '#fff' }} className="sidebar-child">
           <Helmet title={`Trekka | ${page.title}`} />
           <div className="wrapper">
@@ -84,18 +83,6 @@ export const pageQuery = graphql`
           childContentfulChapterSummarySummaryTextNode {
             childMarkdownRemark {
               html
-            }
-          }
-        }
-      }
-    }
-    allContentfulLogo {
-      edges {
-        node {
-          title
-          image {
-            fluid(maxWidth: 400) {
-              ...GatsbyContentfulFluid_tracedSVG
             }
           }
         }

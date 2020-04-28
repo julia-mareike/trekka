@@ -6,12 +6,11 @@ import Layout from '../components/layout'
 
 class TrekkaTheBook extends React.Component {
   render() {
-    const [logo] = get(this, 'props.data.allContentfulLogo.edges')
     const [sideBar] = get(this, 'props.data.allContentfulSidebar.edges')
     const page = get(this, 'props.data.contentfulPage')
 
     return (
-      <Layout location={this.props.location} logo={logo.node} sidebar={sideBar.node}>
+      <Layout location={this.props.location} sidebar={sideBar.node}>
         <div style={{ background: '#fff' }} className="sidebar-child">
           <Helmet title={`Trekka | The Book`} />
           <div className="wrapper">
@@ -38,18 +37,6 @@ export const pageQuery = graphql`
       content {
         childMarkdownRemark {
           html
-        }
-      }
-    }
-    allContentfulLogo {
-      edges {
-        node {
-          title
-          image {
-            fluid(maxWidth: 400) {
-              ...GatsbyContentfulFluid_tracedSVG
-            }
-          }
         }
       }
     }

@@ -6,11 +6,10 @@ import Layout from '../components/layout'
 
 class Czech extends React.Component {
   render() {
-    const [logo] = get(this, 'props.data.allContentfulLogo.edges')
     const [sideBar] = get(this, 'props.data.allContentfulSidebar.edges')
 
     return (
-      <Layout location={this.props.location} logo={logo.node} sidebar={sideBar.node}>
+      <Layout location={this.props.location} sidebar={sideBar.node}>
         <div style={{ background: '#fff' }} className="sidebar-child">
           <Helmet title={`Trekka | Czech`} />
           <div className="wrapper">
@@ -28,18 +27,6 @@ export default Czech
 
 export const pageQuery = graphql`
   query CzechQuery {
-    allContentfulLogo {
-      edges {
-        node {
-          title
-          image {
-            fluid(maxWidth: 400) {
-              ...GatsbyContentfulFluid_tracedSVG
-            }
-          }
-        }
-      }
-    }
     allContentfulSidebar {
       edges {
         node {

@@ -10,10 +10,9 @@ class RootIndex extends React.Component {
   render() {
     const posts = get(this, 'props.data.allContentfulNews.edges')
     const [image] = get(this, 'props.data.allContentfulHomepageImage.edges')
-    const [logo] = get(this, 'props.data.allContentfulLogo.edges')
 
     return (
-      <Layout location={this.props.location} logo={logo.node}>
+      <Layout location={this.props.location}>
         <div style={{ background: '#fff5ed' }}>
           <Helmet title={'Trekka'} />
           <Hero data={image.node} />
@@ -69,18 +68,6 @@ export const pageQuery = graphql`
             }
           }
           link
-        }
-      }
-    }
-    allContentfulLogo {
-      edges {
-        node {
-          title
-          image {
-            fluid(maxWidth: 400) {
-              ...GatsbyContentfulFluid_noBase64
-            }
-          }
         }
       }
     }

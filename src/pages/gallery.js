@@ -13,11 +13,10 @@ class Gallery extends React.Component {
     modalImage: null
   }
   render() {
-    const [logo] = get(this, 'props.data.allContentfulLogo.edges')
     const { images } = get(this, 'props.data.contentfulGallery')
 
     return (
-      <Layout location={this.props.location} logo={logo.node}>
+      <Layout location={this.props.location}>
         <div style={{ background: '#fff' }} className="sidebar-child">
           <Helmet title={`Trekka | Gallery`} />
           <div className="wrapper">
@@ -60,18 +59,6 @@ export const pageQuery = graphql`
           ...GatsbyContentfulFluid
         }
         id
-      }
-    }
-    allContentfulLogo {
-      edges {
-        node {
-          title
-          image {
-            fluid(maxWidth: 400) {
-              ...GatsbyContentfulFluid_tracedSVG
-            }
-          }
-        }
       }
     }
   }

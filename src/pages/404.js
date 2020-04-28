@@ -7,13 +7,10 @@ import Layout from '../components/layout'
 
 class ErrorPage extends React.Component {
   render() {
-    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const [logo] = get(this, 'props.data.allContentfulLogo.edges')
-
     return (
-      <Layout location={this.props.location} logo={logo.node}>
+      <Layout location={this.props.location}>
         <div>
-          <Helmet title={siteTitle} />
+          <Helmet title={'Trekka | Error'} />
           <div className={styles.hero}>Oops</div>
           <div className="wrapper">
             <h2 className="section-headline">This page doesn't exist yet</h2>
@@ -25,20 +22,3 @@ class ErrorPage extends React.Component {
 }
 
 export default ErrorPage
-
-export const pageQuery = graphql`
-  query ErrorPageQuery {
-    allContentfulLogo {
-      edges {
-        node {
-          title
-          image {
-            fluid(maxWidth: 400) {
-              ...GatsbyContentfulFluid_tracedSVG
-            }
-          }
-        }
-      }
-    }
-  }
-`
