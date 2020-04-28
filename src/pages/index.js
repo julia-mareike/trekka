@@ -12,7 +12,7 @@ class RootIndex extends React.Component {
     const [image] = get(this, 'props.data.allContentfulHomepageImage.edges')
 
     return (
-      <Layout location={this.props.location}>
+      <Layout>
         <div style={{ background: '#fff5ed' }}>
           <Helmet title={'Trekka'} />
           <Hero data={image.node} />

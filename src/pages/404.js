@@ -1,6 +1,4 @@
 import React from 'react'
-import { graphql } from 'gatsby'
-import get from 'lodash/get'
 import { Helmet } from 'react-helmet-async'
 import styles from './news.module.css'
 import Layout from '../components/layout'
@@ -8,7 +6,7 @@ import Layout from '../components/layout'
 class ErrorPage extends React.Component {
   render() {
     return (
-      <Layout location={this.props.location}>
+      <Layout>
         <div>
           <Helmet title={'Trekka | Error'} />
           <div className={styles.hero}>Oops</div>

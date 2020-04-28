@@ -1,13 +1,11 @@
 import React from 'react'
-import { graphql } from 'gatsby'
-import get from 'lodash/get'
 import { Helmet } from 'react-helmet-async'
 import Layout from '../components/layout'
 
 class Czech extends React.Component {
   render() {
     return (
-      <Layout location={this.props.location} sidebar>
+      <Layout sidebar>
         <div style={{ background: '#fff' }} className="sidebar-child">
           <Helmet title={`Trekka | Czech`} />
           <div className="wrapper">

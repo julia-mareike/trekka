@@ -20,7 +20,7 @@ class ChapterSummary extends React.Component {
     const chapterSummaries = get(this, 'props.data.allContentfulChapterSummary.edges')
 
     return (
-      <Layout location={this.props.location} sidebar>
+      <Layout sidebar>
         <div style={{ background: '#fff' }} className="sidebar-child">
           <Helmet title={`Trekka | ${page.title}`} />
           <div className="wrapper">

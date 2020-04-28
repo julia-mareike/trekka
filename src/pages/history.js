@@ -9,7 +9,7 @@ class History extends React.Component {
     const page = get(this, 'props.data.contentfulPage')
 
     return (
-      <Layout location={this.props.location} sidebar>
+      <Layout sidebar>
         <div style={{ background: '#fff' }} className="sidebar-child">
           <Helmet title={`Trekka | ${page.title}`} />
           <div className="wrapper">

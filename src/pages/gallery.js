@@ -16,7 +16,7 @@ class Gallery extends React.Component {
     const { images } = get(this, 'props.data.contentfulGallery')
 
     return (
-      <Layout location={this.props.location}>
+      <Layout>
         <div style={{ background: '#fff' }} className="sidebar-child">
           <Helmet title={`Trekka | Gallery`} />
           <div className="wrapper">

@@ -13,7 +13,7 @@ class Template extends React.Component {
     
     return (
       <Container>
-        <Logo logo={this.props.logo}/>
+        <Logo />
         <Navigation />
         <div className={classname}>
           {children}

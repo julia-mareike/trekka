@@ -10,7 +10,7 @@ class NewsIndex extends React.Component {
     const posts = get(this, 'props.data.allContentfulNews.edges')
 
     return (
-      <Layout location={this.props.location} sidebar>
+      <Layout sidebar>
         <div style={{ background: '#fff' }} className="sidebar-child">
           <Helmet title={`Trekka | Latest News`} />
           <div className="wrapper">
