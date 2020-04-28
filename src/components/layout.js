@@ -17,7 +17,7 @@ class Template extends React.Component {
         <Navigation />
         <div className={classname}>
           {children}
-          {sidebar && <Sidebar sidebar={sidebar} />}
+          {sidebar && <Sidebar />}
         </div>
         <Footer />
       </Container>

@@ -8,10 +8,9 @@ import ArticlePreview from '../components/article-preview'
 class NewsIndex extends React.Component {
   render() {
     const posts = get(this, 'props.data.allContentfulNews.edges')
-    const [sideBar] = get(this, 'props.data.allContentfulSidebar.edges')
 
     return (
-      <Layout location={this.props.location} sidebar={sideBar.node}>
+      <Layout location={this.props.location} sidebar>
         <div style={{ background: '#fff' }} className="sidebar-child">
           <Helmet title={`Trekka | Latest News`} />
           <div className="wrapper">
@@ -47,23 +46,6 @@ export const pageQuery = graphql`
               ...GatsbyContentfulFluid
             }
           }
-          content {
-            childMarkdownRemark {
-              html
-            }
-          }
-        }
-      }
-    }
-    allContentfulSidebar {
-      edges {
-        node {
-          image {
-            fixed(width: 175) {
-              ...GatsbyContentfulFixed
-            }
-          }
-          header
           content {
             childMarkdownRemark {
               html
